@@ -3,28 +3,23 @@ import os
 from dotenv import load_dotenv
 from social_media_agent import get_transcript, generate_social_media_content
 
-# Load environment variables
 load_dotenv()
 
-# Set page config
 st.set_page_config(
     page_title="Social Media Content Writer",
     page_icon="✍️",
     layout="wide"
 )
 
-# Initialize session state for storing results
 if 'results' not in st.session_state:
     st.session_state.results = None
 
-# Title and description
 st.title("✍️ Social Media Content Writer")
 st.markdown("""
 This app helps you generate social media content from YouTube videos. 
 Enter a video ID and your query to get started!
 """)
 
-# Create two columns for input
 col1, col2 = st.columns(2)
 
 with col1:
@@ -41,31 +36,25 @@ with col2:
         help="Select the social media platform for content generation"
     )
 
-# Add a submit button
 if st.button("Generate Content", type="primary"):
     if not video_id:
         st.error("Please provide a video ID!")
     else:
         try:
             with st.spinner("Generating content... This may take a few minutes."):
-                # Get transcript
                 transcript = get_transcript(video_id)
                 
-                # Generate content
                 result = generate_social_media_content(transcript, platform)
                 
-                # Store results in session state
                 st.session_state.results = result
                 
         except Exception as e:
             st.error(f"An error occurred: {str(e)}")
 
-# Display results if available
 if st.session_state.results:
     st.markdown("---")
     st.subheader("Generated Content")
     st.markdown(st.session_state.results)
 
-# Add footer
 st.markdown("---")
 st.markdown("Made with ❤️ using Streamlit and OpenAI") 
