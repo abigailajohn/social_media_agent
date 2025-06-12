@@ -48,22 +48,10 @@ OPENAI_API_KEY=your_api_key_here
 
 1. Run the script:
 ```bash
-# For normal execution
 python social_media_agent.py
-
-# For execution with OpenAI API tracing
-# Windows PowerShell
-$env:OPENAI_TRACE=1; python social_media_agent.py
-
-# Windows Command Prompt
-set OPENAI_TRACE=1 && python social_media_agent.py
-
-# Linux/Mac
-OPENAI_TRACE=1 python social_media_agent.py
 ```
 
 2. The script will:
-   - Check internet connectivity
    - Fetch the transcript from the specified YouTube video
    - Generate social media content for different platforms
    - Display the generated content
@@ -75,13 +63,6 @@ You can modify the following in `social_media_agent.py`:
 - Social media platforms: Modify the `platforms` list in the `main()` function
 - OpenAI model: Change the `model` parameter in `generate_social_media_content()`
 
-## Error Handling
-
-The script includes comprehensive error handling for:
-- Internet connectivity issues
-- YouTube transcript fetching errors
-- OpenAI API errors
-- General exceptions
 
 ## Contributing
 
