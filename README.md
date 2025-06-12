@@ -5,9 +5,9 @@ This Python application automatically generates social media content from YouTub
 ## Features
 
 - YouTube video transcript fetching
-- Multi-platform content generation (LinkedIn, Twitter, Facebook)
+- Multi-platform content generation (LinkedIn, Twitter, Instagram)
 - OpenAI GPT integration for content generation
-
+- User-friendly Streamlit web interface
 
 ## Prerequisites
 
@@ -46,6 +46,22 @@ OPENAI_API_KEY=your_api_key_here
 
 ## Usage
 
+### Web Interface (Recommended)
+
+1. Run the Streamlit app:
+```bash
+streamlit run app.py
+```
+
+2. Open your browser at http://localhost:8501
+
+3. In the web interface:
+   - Enter a YouTube video ID (the part after 'v=' in a YouTube URL)
+   - Select the target social media platform
+   - Click "Generate Content" to create your post
+
+### Command Line Interface
+
 1. Run the script:
 ```bash
 python social_media_agent.py
@@ -63,7 +79,6 @@ You can modify the following in `social_media_agent.py`:
 - Social media platforms: Modify the `platforms` list in the `main()` function
 - OpenAI model: Change the `model` parameter in `generate_social_media_content()`
 
-
 ## Contributing
 
 1. Fork the repository
@@ -79,4 +94,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - [YouTube Transcript API](https://github.com/jdepoix/youtube-transcript-api)
-- [OpenAI Python SDK](https://github.com/openai/openai-python) 
+- [OpenAI Python SDK](https://github.com/openai/openai-python)
+- [Streamlit](https://streamlit.io/) 
