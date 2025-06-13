@@ -63,7 +63,7 @@ def generate_social_media_content(transcript: str, platform: str = "LinkedIn") -
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a professional social media content creator."},
+                {"role": "user", "content": "You are a professional social media content creator."},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=2500,
